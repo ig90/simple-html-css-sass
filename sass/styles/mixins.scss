@@ -1,0 +1,40 @@
+@mixin transition($speed){	
+	-moz-transition: $speed all;
+	-webkit-transition: $speed all;
+	-o-transition: $speed all;
+}
+@mixin size($width, $height){
+	width: $width;
+	height: $height;
+}
+/*  implementacja */ /*
+.klasa{
+	@include size(200px, 200px);
+}
+.klasa2{
+	@include size((round($width - 100px) / 3), $navH);
+}
+ */
+@mixin flexbox(){
+	/* display: -webkit-box; */
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+@mixin flexbox-center(){
+	align-items: center;
+	justify-content: center;
+}
+@mixin mq($screen){	
+	@if $screen == ss {
+		@media #{$mq-ss} {
+			@content;  /* żeby były nawiasy w css (i content) */
+		}
+	}	
+@else if $screen == xs {	
+	@media #{$mq-xs} {
+		@content;
+	}
+}
+}
